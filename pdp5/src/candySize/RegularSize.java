@@ -5,7 +5,7 @@ import visit.IsVisible;
 
 public class RegularSize implements IsVisible {
 
-	private final String sizeName = "Regular Size";
+	private final String sizeName = "regular size";
 
 	public String getSizeName() {
 		return sizeName;

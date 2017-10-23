@@ -8,7 +8,7 @@ import visit.IsVisible;
 
 public class KingSize implements IsVisible{
 
-	private final String sizeName = "King Size";
+	private final String sizeName = "king size";
 	private KitKatCandy kitKitCandy;
 	private WhoopersCandy whoopersCandy;
 	private CrunchCandy crunchCandy;

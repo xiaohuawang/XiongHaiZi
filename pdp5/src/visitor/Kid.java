@@ -3,6 +3,7 @@ package visitor;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import candyName.AlmondJoyCandy;
 import candyName.BabyRuthCandy;
@@ -61,7 +62,7 @@ public class Kid implements IVisitor {
 	private MilkyWayCandy milkyWayCandy = new MilkyWayCandy();
 
 	private HashMap<String, ArrayList<String>> kidMap;
-	private List<String> resultList=new ArrayList<String>();
+	private List<String> resultList = new ArrayList<String>();
 	//
 
 	// set up mansion for supersize
@@ -77,7 +78,7 @@ public class Kid implements IVisitor {
 	// kingSizeMA.setWhoopersCandy(whoopersCandyMA);
 	// mansion.setKingSize(kingSizeMA);
 	// }
-	
+
 	// kid constructore
 	public Kid(HashMap<String, ArrayList<String>> kidMap) {
 		this.kidMap = kidMap;
@@ -105,7 +106,7 @@ public class Kid implements IVisitor {
 		this.isVisitingHouse = isVistingHouse;
 	}
 
-	//set route set, used by the IsVisibleClass
+	// set route set, used by the IsVisibleClass
 	@Override
 	public void setRouteList(String route) {
 		// TODO Auto-generated method stub
@@ -118,17 +119,38 @@ public class Kid implements IVisitor {
 
 	public void Start() {
 
+		System.out.println("-----------------mansion-----------------");
 		isVisitingHouse = "mansion";
 		mansion.accept(this);
 
-		// isVisitingHouse="detachedHouse";
-		// detachedHouse.accept(this);
+		System.out.println();
+		System.out.println();
+		System.out.println("-----------------detachedHouse-----------------");
+
+		isVisitingHouse = "detachedHouse";
+		detachedHouse.accept(this);
+
+		System.out.println();
+		System.out.println();
+		System.out.println("-----------------duplexHouse-----------------");
+
+		isVisitingHouse = "duplex";
+		duplex.accept(this);
+
+		System.out.println();
+		System.out.println();
+		System.out.println("-----------------townHouse-----------------");
+
+		isVisitingHouse = "townHouse";
+		townHouse.accept(this);
 		//
-		// isVisitingHouse="duplex";
-		// duplex.accept(this);
+		// for (Map.Entry<String, ArrayList<String>> entry :
+		// this.getKidMap().entrySet()) {
+		// String key = entry.getKey();
+		// ArrayList<String> value = entry.getValue();
+		// if
 		//
-		// isVisitingHouse="townHouse";
-		// townHouse.accept(this);
+		// }
 
 	}
 

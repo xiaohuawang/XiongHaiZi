@@ -6,7 +6,7 @@ import visit.IsVisible;
 public class AlmondJoyCandy implements IsVisible{
 
 	
-	private final String candyName = "AlmondJoy";
+	private final String candyName = "almond joy";
 
 	public AlmondJoyCandy() {
 
@@ -43,6 +43,8 @@ public class AlmondJoyCandy implements IsVisible{
 							resultSb.append(visitor.getRouteList().get(i)+",");
 						}
 					}
+					visitor.setResultList(resultSb.toString());
+					resultSb=new StringBuilder();
 					visitor.getKidMap().get(visitor.getRouteList().get(1)).remove(visitor.getRouteList().get(2));
 				}
 			} else {

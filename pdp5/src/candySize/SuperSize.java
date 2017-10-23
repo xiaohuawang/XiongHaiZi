@@ -8,7 +8,7 @@ import visit.IsVisible;
 
 public class SuperSize implements IsVisible {
 
-	private final String sizeName = "Super Size";
+	private final String sizeName = "super size";
 	private TwixCandy twixCandy;
 	private SnickersCandy snickersCandy;
 	private MarsCandy marsCandy;

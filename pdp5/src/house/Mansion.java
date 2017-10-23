@@ -57,8 +57,16 @@ public class Mansion implements IsVisible {
 	@Override
 	public void accept(IVisitor visitor) {
 		// TODO Auto-generated method stub
-		System.out.println("come here");
+		System.out.println("come to mansion");
 //		System.out.println(this.getMansionName());
+		if(visitor.getRouteList().size()==1){
+			visitor.getRouteList().remove(0);
+		}
+		else if(visitor.getRouteList().size()==2){
+			visitor.getRouteList().remove(1);
+			visitor.getRouteList().remove(0);
+		}
+		
 		visitor.setRouteList(this.getHouseName());
 		visitor.visit(this);
 	}

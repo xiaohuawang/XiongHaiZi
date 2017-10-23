@@ -5,7 +5,7 @@ import visit.IsVisible;
 
 public class BabyRuthCandy implements IsVisible{
 
-	private final String candyName = "BabyRuth";
+	private final String candyName = "baby ruth";
 
 	public BabyRuthCandy() {
 
@@ -22,6 +22,7 @@ public class BabyRuthCandy implements IsVisible{
 		visitor.setRouteList(this.getCandyName());
 		
 		System.out.println("-----------------come to BabyRuthCandy");
+		StringBuilder resultSb=new StringBuilder();
 		System.out.println(visitor.getKidMap());
 		
 		for (String routeStr : visitor.getRouteList()) {
@@ -34,6 +35,15 @@ public class BabyRuthCandy implements IsVisible{
 			if (visitor.getKidMap().get(visitor.getRouteList().get(1)).contains((visitor.getRouteList().get(2)))) {
 				while (visitor.getKidMap().get(visitor.getRouteList().get(1)).contains((visitor.getRouteList().get(2)))) {
 					System.out.println("yes we find the candy");
+					for(int i=visitor.getRouteList().size()-1;i>=0;i--){
+						if(i==0){
+							resultSb.append(visitor.getRouteList().get(i));
+						}else{
+							resultSb.append(visitor.getRouteList().get(i)+",");
+						}
+					}
+					visitor.setResultList(resultSb.toString());
+					resultSb=new StringBuilder();
 					visitor.getKidMap().get(visitor.getRouteList().get(1)).remove(visitor.getRouteList().get(2));
 				}
 			} else {

@@ -7,7 +7,7 @@ import visit.IsVisible;
 
 public class SnickersCandy implements IsVisible {
 
-	private final String candyName = "Snickers";
+	private final String candyName = "snickers";
 
 	public SnickersCandy() {
 
@@ -22,12 +22,14 @@ public class SnickersCandy implements IsVisible {
 		// TODO Auto-generated method stub
 		visitor.setRouteList(this.getCandyName());
 		System.out.println("-----------------come to SnickersCandy");
-
+		StringBuilder resultSb=new StringBuilder();
+		
 		System.out.println(visitor.getKidMap());
-
+		
 		for (String routeStr : visitor.getRouteList()) {
-			System.out.println(routeStr);
+			System.out.print(routeStr+" ->");
 		}
+		System.out.println();
 
 		// ArrayList<String>
 		// kidSizeSet=visitor.getKidMap().get(visitor.getRouteList().get(1));
@@ -36,6 +38,15 @@ public class SnickersCandy implements IsVisible {
 			if (visitor.getKidMap().get(visitor.getRouteList().get(1)).contains((visitor.getRouteList().get(2)))) {
 				while (visitor.getKidMap().get(visitor.getRouteList().get(1)).contains((visitor.getRouteList().get(2)))) {
 					System.out.println("yes we find the candy");
+					for(int i=visitor.getRouteList().size()-1;i>=0;i--){
+						if(i==0){
+							resultSb.append(visitor.getRouteList().get(i));
+						}else{
+							resultSb.append(visitor.getRouteList().get(i)+",");
+						}
+					}
+					visitor.setResultList(resultSb.toString());
+					resultSb=new StringBuilder();
 					visitor.getKidMap().get(visitor.getRouteList().get(1)).remove(visitor.getRouteList().get(2));
 				}
 			} else {

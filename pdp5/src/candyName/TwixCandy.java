@@ -5,7 +5,7 @@ import visit.IsVisible;
 
 public class TwixCandy implements IsVisible{
 
-	private final String candyName = "Twix";
+	private final String candyName = "twix";
 
 	public TwixCandy() {
 
@@ -20,18 +20,19 @@ public class TwixCandy implements IsVisible{
 		// TODO Auto-generated method stub
 		visitor.setRouteList(this.getCandyName());
 		
-		StringBuilder resultSb=new StringBuilder();
-		System.out.println("-----------------come to twix");
 		
+		System.out.println("-----------------come to twix");
+		StringBuilder resultSb=new StringBuilder();
 		
 //		for(int i=0;i<visitor.getRouteList().size();i++){
 //			if(ma)visitor.getRouteList().get(i)
 //		}
 		System.out.println(visitor.getKidMap());
 		
-		for(String routeStr: visitor.getRouteList()){
-			System.out.println(routeStr);
+		for (String routeStr : visitor.getRouteList()) {
+			System.out.print(routeStr+" ->");
 		}
+		System.out.println();
 		
 		System.out.println("test1= "+visitor.getKidMap().get(visitor.getRouteList().get(1)));
 		System.out.println("test2= "+visitor.getRouteList().get(2));
@@ -50,10 +51,8 @@ public class TwixCandy implements IsVisible{
 						}
 					}
 					visitor.setResultList(resultSb.toString());
+					resultSb=new StringBuilder();
 					visitor.getKidMap().get(visitor.getRouteList().get(1)).remove(visitor.getRouteList().get(2));
-					System.out.println();
-					System.out.println("modified kid's map");
-					System.out.println(visitor.getKidMap());
 				}	
 			}else{
 				System.out.println("no we dont find the candy");

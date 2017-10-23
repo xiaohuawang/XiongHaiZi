@@ -5,7 +5,7 @@ import visit.IsVisible;
 
 public class FunSize implements IsVisible {
 
-	private final String sizeName = "Fun Size";
+	private final String sizeName = "fun size";
 
 	public String getSizeName() {
 		return sizeName;

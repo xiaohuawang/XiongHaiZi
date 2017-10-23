@@ -6,7 +6,7 @@ import visit.IsVisible;
 public class KitKatCandy implements IsVisible{
 
 
-	private final String candyName="KitKat";
+	private final String candyName="kit kat";
 	
 	public KitKatCandy(){
 		
@@ -22,11 +22,12 @@ public class KitKatCandy implements IsVisible{
 		visitor.setRouteList(this.getCandyName());
 		
 		System.out.println("-----------------come to KitKat");
-
+		StringBuilder resultSb=new StringBuilder();
 		System.out.println(visitor.getKidMap());
 		for (String routeStr : visitor.getRouteList()) {
-			System.out.println(routeStr);
+			System.out.print(routeStr+" ->");
 		}
+		System.out.println();
 		
 		System.out.println("test1= "+visitor.getKidMap().get(visitor.getRouteList().get(1)));
 		System.out.println("test2= "+visitor.getRouteList().get(2));
@@ -36,6 +37,15 @@ public class KitKatCandy implements IsVisible{
 			if (visitor.getKidMap().get(visitor.getRouteList().get(1)).contains((visitor.getRouteList().get(2)))) {
 				while (visitor.getKidMap().get(visitor.getRouteList().get(1)).contains((visitor.getRouteList().get(2)))) {
 					System.out.println("yes we find the candy");
+					for(int i=visitor.getRouteList().size()-1;i>=0;i--){
+						if(i==0){
+							resultSb.append(visitor.getRouteList().get(i));
+						}else{
+							resultSb.append(visitor.getRouteList().get(i)+",");
+						}
+					}
+					visitor.setResultList(resultSb.toString());
+					resultSb=new StringBuilder();
 					visitor.getKidMap().get(visitor.getRouteList().get(1)).remove(visitor.getRouteList().get(2));
 				}
 			} else {
