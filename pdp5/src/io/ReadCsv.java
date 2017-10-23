@@ -2,7 +2,9 @@ package io;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -36,8 +38,20 @@ public class ReadCsv {
 		return filename;
 	}
 
+	public List<HashMap<String, ArrayList<String>>> readFile(String args[]) throws IOException {
+
+		List<HashMap<String, ArrayList<String>>> kidMapList = new ArrayList<HashMap<String, ArrayList<String>>>();
+		for (int i = 1; i <= Integer.valueOf(args[0]); i++) {
+			System.out.println(args[i]);
+			HashMap<String, ArrayList<String>> kidMap = createKidMap(args[i]);
+			kidMapList.add(kidMap);
+		}
+		// System.exit(0);
+		return kidMapList;
+	}
+
 	// /Users/yangyangyy/git/pdp5/pdp5/DreamCandy1.csv
-	public HashMap<String, ArrayList<String>> readFile(String args[]) throws Exception {
+	public HashMap<String, ArrayList<String>> createKidMap(String filenamePart) throws IOException {
 
 		HashSet<String> candyNameSet = setNameSet();
 		HashMap<String, ArrayList<String>> inputMap = new HashMap<String, ArrayList<String>>();
@@ -47,7 +61,7 @@ public class ReadCsv {
 		ArrayList<String> kingList = new ArrayList<String>();
 
 		List<String> resList = new ArrayList<String>();
-		String filename = getFileName(args[1]);
+		String filename = getFileName(filenamePart);
 		BufferedReader reader = new BufferedReader(new FileReader(filename));
 
 		String line = reader.readLine();
@@ -78,7 +92,7 @@ public class ReadCsv {
 			}
 		}
 		reader.close();
-		
+
 		inputMap.put("super size", superList);
 		inputMap.put("king size", kingList);
 		inputMap.put("regular size", regularList);

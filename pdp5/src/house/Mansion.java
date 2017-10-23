@@ -8,7 +8,7 @@ import visit.IsVisible;
 
 public class Mansion implements IsVisible {
 
-	private final String houseName = "mansion";
+	private final String houseName = "Mansion";
 	private SuperSize superSize;
 	private KingSize kingSize;
 	private FunSize funSize;
