@@ -28,10 +28,7 @@ public class WriteResult {
 				writer.println(s);
 			}
 			writer.close();
-		} catch (
-
-		Exception e) {
-			// } catch (FileNotFoundException e) {
+		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
 	}

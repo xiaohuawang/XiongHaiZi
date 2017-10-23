@@ -119,11 +119,11 @@ public class Kid implements IVisitor {
 
 	public void Start() {
 
+		System.out.println("-----------------Begin Searching-----------------");
 		System.out.println("-----------------mansion-----------------");
 		isVisitingHouse = "mansion";
 		mansion.accept(this);
 
-		System.out.println();
 		System.out.println();
 		System.out.println("-----------------detachedHouse-----------------");
 
@@ -131,27 +131,21 @@ public class Kid implements IVisitor {
 		detachedHouse.accept(this);
 
 		System.out.println();
-		System.out.println();
 		System.out.println("-----------------duplexHouse-----------------");
 
 		isVisitingHouse = "duplex";
 		duplex.accept(this);
 
 		System.out.println();
-		System.out.println();
 		System.out.println("-----------------townHouse-----------------");
 
 		isVisitingHouse = "townHouse";
 		townHouse.accept(this);
-		//
-		// for (Map.Entry<String, ArrayList<String>> entry :
-		// this.getKidMap().entrySet()) {
-		// String key = entry.getKey();
-		// ArrayList<String> value = entry.getValue();
-		// if
-		//
-		// }
 
+		System.out.println();
+		System.out.println("-----------------End Searching-----------------");
+		System.out.println();
+		System.out.println();
 	}
 
 	@Override
@@ -269,65 +263,4 @@ public class Kid implements IVisitor {
 			whoopersCandy.accept(this);
 		}
 	}
-
-	@Override
-	public void visit(TwixCandy twixCandy) {
-		// TODO Auto-generated method stub
-		System.out.println("Candy is TwixCandy");
-	}
-
-	@Override
-	public void visit(SnickersCandy snickersCandy) {
-		// TODO Auto-generated method stub
-		System.out.println("Candy is SnickersCandy");
-	}
-
-	@Override
-	public void visit(MarsCandy marsCandy) {
-		// TODO Auto-generated method stub
-		System.out.println("Candy is MarsCandy");
-	}
-
-	@Override
-	public void visit(KitKatCandy kitKatCandy) {
-		// TODO Auto-generated method stub
-		System.out.println("Candy: KitKatCandy");
-	}
-
-	@Override
-	public void visit(WhoopersCandy whoopersCandy) {
-		// TODO Auto-generated method stub
-		System.out.println("Candy: WhoopersCandy");
-	}
-
-	@Override
-	public void visit(CrunchCandy crunchCandy) {
-		// TODO Auto-generated method stub
-		System.out.println("Candy: CrunchCandy");
-	}
-
-	@Override
-	public void visit(BabyRuthCandy babyRuthCandy) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void visit(AlmondJoyCandy almondJoyCandy) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void visit(MilkyWayCandy milkyWayCandy) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void visit(TobleroneCandy tobleroneCandy) {
-		// TODO Auto-generated method stub
-
-	}
-
 }

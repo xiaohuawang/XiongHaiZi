@@ -56,6 +56,5 @@ public class AlmondJoyCandy implements IsVisible{
 		}
 
 		visitor.getRouteList().remove(2);
-		visitor.visit(this);
 	}
 }

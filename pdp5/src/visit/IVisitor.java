@@ -65,29 +65,4 @@ public interface IVisitor {
 	public void visit(SuperSize superSize);
 
 	// candy
-	public void visit(TwixCandy twixCandy);
-
-	public void visit(SnickersCandy snickersCandy);
-
-	public void visit(MarsCandy marsCandy);
-
-	public void visit(KitKatCandy kitKatCandy);
-
-	public void visit(WhoopersCandy whoopersCandy);
-
-	public void visit(CrunchCandy crunchCandy);
-	
-	public void visit(BabyRuthCandy babyRuthCandy);
-	
-	public void visit(AlmondJoyCandy almondJoyCandy);
-	
-	public void visit(MilkyWayCandy milkyWayCandy);
-	
-	public void visit(TobleroneCandy tobleroneCandy);
-	
-	// public void visit(AlmondJoyCandy almondJoyCandy);
-	//
-	// public void visit(BabyRuthCandy babyRuthCandy);
-	//
-	// public void visit(CrunchCandy crunchCandy);
 }

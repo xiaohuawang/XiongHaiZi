@@ -55,6 +55,6 @@ public class MarsCandy implements IsVisible {
 		}
 
 		visitor.getRouteList().remove(2);
-		visitor.visit(this);
+
 	}
 }

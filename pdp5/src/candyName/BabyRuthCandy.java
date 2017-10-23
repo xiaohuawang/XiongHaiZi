@@ -55,6 +55,5 @@ public class BabyRuthCandy implements IsVisible{
 		}
 
 		visitor.getRouteList().remove(2);
-		visitor.visit(this);
 	}
 }

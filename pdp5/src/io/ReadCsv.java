@@ -1,6 +1,7 @@
 package io;
 
 import java.io.BufferedReader;
+import java.io.Console;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -51,7 +52,7 @@ public class ReadCsv {
 	}
 
 	// /Users/yangyangyy/git/pdp5/pdp5/DreamCandy1.csv
-	public HashMap<String, ArrayList<String>> createKidMap(String filenamePart) throws IOException {
+	public HashMap<String, ArrayList<String>> createKidMap(String filenamePart) {
 
 		HashSet<String> candyNameSet = setNameSet();
 		HashMap<String, ArrayList<String>> inputMap = new HashMap<String, ArrayList<String>>();
@@ -62,36 +63,42 @@ public class ReadCsv {
 
 		List<String> resList = new ArrayList<String>();
 		String filename = getFileName(filenamePart);
-		BufferedReader reader = new BufferedReader(new FileReader(filename));
+		System.out.println("----------------------filename= " + filename);
+		BufferedReader reader;
+		try {
+			reader = new BufferedReader(new FileReader(filename));
+			String line = reader.readLine();
+			String parts[] = line.split(",");
+			System.out.println("-------lenght= " + parts.length);
+			for (int i = 0; i < parts.length; i++) {
+				parts[i] = parts[i].toLowerCase();
+				parts[i] = parts[i].trim();
+				resList.add(parts[i]);
 
-		String line = reader.readLine();
-		String parts[] = line.split(",");
-		System.out.println("-------lenght= " + parts.length);
-		for (int i = 0; i < parts.length; i++) {
-			parts[i] = parts[i].toLowerCase();
-			parts[i] = parts[i].trim();
-			resList.add(parts[i]);
-
-			// System.out.println(parts[i]);
-			if (parts[i].contains("super size")) {
-				System.out.println(parts[i].replaceAll("super size", "").trim());
-				// inputMap.put("super size", );
-				superList.add(parts[i].replaceAll("super size", "").trim());
-			} else if (parts[i].contains("king size")) {
-				System.out.println(parts[i].replaceAll("king size", "").trim());
-				kingList.add(parts[i].replaceAll("king size", "").trim());
-			} else if (parts[i].contains("fun size")) {
-				System.out.println(parts[i].replaceAll("fun size", "").trim());
-				funList.add(parts[i].replaceAll("fun size", "").trim());
-			} else if (parts[i].contains("regular size")) {
-				System.out.println(parts[i].replaceAll("fun size", "").trim());
-				regularList.add(parts[i].replaceAll("regular size", "").trim());
-			} else {
-				// regular size
-				regularList.add(parts[i]);
+				// System.out.println(parts[i]);
+				if (parts[i].contains("super size")) {
+					superList.add(parts[i].replaceAll("super size", "").trim());
+				} else if (parts[i].contains("king size")) {
+					kingList.add(parts[i].replaceAll("king size", "").trim());
+				} else if (parts[i].contains("fun size")) {
+					funList.add(parts[i].replaceAll("fun size", "").trim());
+				} else if (parts[i].contains("regular size")) {
+					regularList.add(parts[i].replaceAll("regular size", "").trim());
+				} else {
+					// regular size
+					regularList.add(parts[i]);
+				}
 			}
+			reader.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			// System.out.println(e.getMessage());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			// System.out.println(e.getMessage());
 		}
-		reader.close();
 
 		inputMap.put("super size", superList);
 		inputMap.put("king size", kingList);
